@@ -1,0 +1,622 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+
+
+  color: #9e9ea4;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.icon {
+  vertical-align: middle;
+  line-height: 1px;
+  font-size: 20px;
+}
+.icon_header {
+  vertical-align: middle;
+  line-height: 1px;
+  font-size: 26px;
+}
+.icon, .icon_header {
+  margin-right: 5px;
+}
+
+.close_icon {
+  color: red;
+  margin-left: 30px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 260px 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 3fr;
+  grid-template-areas:
+    'sidebar header header header'
+    'sidebar main main main';
+  height: 100vh;
+}
+
+/* Header  */
+.header {
+  grid-area: header;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px 0 30px;
+  box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+}
+
+.menu-icon {
+  display: none;
+}
+/* End Header  */
+
+/* Sidebar  */
+#sidebar {
+  grid-area: sidebar;
+  height: 100%;
+  background-color:  #333;
+  overflow-y: auto;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px 0px 30px;
+  margin-bottom: 30px;
+}
+
+.sidebar-title > span {
+  display: none;
+}
+
+.sidebar-brand {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sidebar-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.sidebar-list-item {
+  padding: 20px 20px 20px 20px;
+  font-size: 18px;
+}
+
+.sidebar-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.sidebar-list-item > a {
+  text-decoration: none;
+  color: #9e9ea4;
+}
+
+.sidebar-responsive {
+  display: inline !important;
+  position: absolute;
+  /*
+    we want the z-index of the sidebar higher so that
+    the charts are not showing over the sidebar 
+    on small screens
+  */
+  z-index: 12 !important;
+}
+
+/* End Sidebar  */
+
+
+/* Main  */  
+.main-container {
+  grid-area: main;
+  overflow-y: auto;
+  padding: 20px 20px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.main-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  margin: 15px 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 8px ;
+  border-radius: 5px;
+}
+
+.card:first-child {
+  background-color: #2962ff;
+}
+
+.card:nth-child(2) {
+  background-color: yellow;
+}
+
+.card:nth-child(3) {
+  background-color: #2e7d32;
+}
+
+.card:nth-child(4) {
+  background-color: #d50000;
+}
+
+.card-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-inner > .card_icon {
+  font-size: 25px;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 60px;
+  height: 300px;
+}
+
+/* End Main  */
+
+
+/* Medium <= 992px */
+  
+@media screen and (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+      'header'
+      'main';
+  }
+
+  #sidebar {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline;
+  }
+
+  .sidebar-title > span {
+    display: inline;
+  }
+}
+/* Small <= 768px */
+  
+@media screen and (max-width: 768px) {
+  .main-cards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .charts {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+}
+
+/* Extra Small <= 576px */
+
+@media screen and (max-width: 576px) {
+  .hedaer-left {
+    display: none;
+  }
+}
+.logo {
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Make the image circular */
+  margin-top: 0px;
+  margin-bottom: 10px; /* Add space between image and name */
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  margin: 0; /* Remove default margin */
+  color: #fff; /* Optionally, set text color */
+}
+
+
+
+.logo img {
+  width: 100px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.logo h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* App.css */
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  width:auto;
+}
+
+/* Logo */
+.logo img {
+  width: 50px; /* Adjust the width as needed */
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-size: 24px;
+}
+
+/* Search bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input[type="text"] {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.search-bar button {
+  background-color:blwack;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+/* Search icon */
+.search-bar button i {
+  font-size: 16px;
+}
+/* App.css */
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Adjust the height as needed */
+  border-radius: 50%; /* Make the image circular */
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-size: 18px; /* Adjust the font size as needed */
+  margin: 0;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribute space evenly between children */
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px; /* Add margin to separate image and text */
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+}
+
+.logout p {
+  margin: 0; /* Remove default margin */
+  margin-right: 5px; /* Add margin to separate text and icon */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width:700px;
+}
+
+.search-bar input {
+  width: 300px; 
+  margin-right: 10px; /* Add margin to separate input and button */
+}
+.thank-you-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #333;
+  padding-top: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Initial shadow */
+  transition: box-shadow 0.3s ease; /* Transition for shadow */
+
+  /* Animation */
+  animation: shadowPulse 3s infinite alternate;
+}
+
+/* Keyframes for the shadow pulse animation */
+@keyframes shadowPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Rest of the sidebar styles */
+.sidebar__heading {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 40px; /* Increase font size */
+  text-decoration: underline; /* Add underline */
+  font-weight:900px;
+}
+
+
+.sidebar__menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 50px;
+  font-size: 25px; 
+  gap:20px;
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  
+}
+
+.sidebar__icon {
+  margin-right: 15px;
+  margin-left: 50px;
+  color: #fff;
+  font-size: 30px; 
+}
+
+.sidebar__link {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.sidebar__link:hover {
+  color: #f8f8f8;
+  text-decoration: underline; 
+}
+Define a transition for smooth hover effects on bars */
+.customerCard .sidebar__item:hover .sidebar__link {
+  background-color: #eee;
+  transition: background-color 0.3s ease;
+}
+
+/* Define animation for bar hover */
+.customerCard .sidebar__item:hover .sidebar__icon {
+  animation: rotateIcon 0.5s ease;
+}
+
+/* Keyframes for rotating the icon */
+@keyframes rotateIcon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.logo {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #333;
+  padding-top: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Initial shadow */
+  transition: box-shadow 0.3s ease; /* Transition for shadow */
+
+  /* Animation */
+  animation: shadowPulse 3s infinite alternate;
+}
+
+/* Keyframes for the shadow pulse animation */
+@keyframes shadowPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Rest of the sidebar styles */
+.sidebar__heading {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1px;
+  margin-top: 10px;
+  font-size: 50px; /* Increase font size */
+  text-decoration: underline; /* Add underline */
+  font-weight: 900;
+}
+
+.sidebar__menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+  font-size: 25px;
+  gap: 20px;
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sidebar__icon {
+  margin-right: 15px;
+  margin-left: 50px;
+  color: #fff;
+  font-size: 30px;
+}
+
+.sidebar__link {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.sidebar__link:hover {
+  color: #f8f8f8;
+  text-decoration: underline;
+}
+
+/* Define transition for smooth hover effects on bars */
+.sidebar__item:hover .sidebar__link {
+  background-color: #eee;
+  transition: background-color 0.3s ease;
+}
+
+/* Define animation for bar hover */
+.sidebar__item:hover .sidebar__icon {
+  animation: rotateIcon 0.5s ease;
+}
+
+/* Keyframes for rotating the icon */
+@keyframes rotateIcon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
